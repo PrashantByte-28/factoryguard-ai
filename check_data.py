@@ -11,6 +11,12 @@ for name, df in data.items():
     if "machineID" in df.columns:
         print("unique machines:", df["machineID"].nunique())
     print(df.head(3).to_string())
+    print("\nMissing values in telemetry:")
+
 
 print(f"Failures per machine:")
 print(data["failures"].groupby("machineID").size().describe())
+print(data["telemetry"].isna().sum())
+
+print("\nDuplicate failure timestamps (same machine, same time):")
+print(data["failures"].duplicated(["machineID", "datetime"]).sum())
