@@ -20,6 +20,6 @@ def load_raw_data(raw_dir: Path = RAW_DIR) -> dict:
         "failures": failures,
         "errors": errors,
         "maint": maint,
-        "machines": machines,
+        "machines": machines,   
 
     }
